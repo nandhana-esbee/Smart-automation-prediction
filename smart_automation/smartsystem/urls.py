@@ -19,7 +19,7 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 
-from .views import  PredTempViewset
+from .views import  PredTempViewset, PredHumidityViewset
 
 
 
@@ -28,6 +28,7 @@ from .views import  PredTempViewset
 router = DefaultRouter(trailing_slash=False)
 
 router.register(r"temperature", PredTempViewset, basename="temp-pred")
+router.register(r"humidity", PredHumidityViewset, basename="temp-pred")
 
 
 
