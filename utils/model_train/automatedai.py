@@ -13,10 +13,10 @@ df = df.dropna()
 df['_time'] = pd.to_datetime(df["_time"])
 df['_time'] = df['_time'].dt.tz_localize(None)
 
-#df['Time_Interval'] = df['_time'].diff().dt.total_seconds() / 3600  
-#df['Time_Interval'] = df['Time_Interval'].fillna(0)  # Replace NaN with 0
+df['Time_Interval'] = df['_time'].diff().dt.total_seconds() / 3600  
+df['Time_Interval'] = df['Time_Interval'].fillna(0)  # Replace NaN with 0
 
-X = df["_time"] # Features (e.g., time of day))
+X = df["Time_Interval"] # Features (e.g., time of day))
 y = df["_value"]      # Target values (e.g., temperature)
 datafit = pd.DataFrame(dict(x=X, y=y))
 datafit = datafit.dropna()
